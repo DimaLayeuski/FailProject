@@ -13,9 +13,11 @@ public class Configurator
     public static string Username => Configuration[nameof(Username)];
     public static string Password => Configuration[nameof(Password)];
     public static string BrowserType => Configuration[nameof(BrowserType)];
-    public static string FirstName => Configuration[nameof(FirstName)];
-    public static string LastName => Configuration[nameof(LastName)];
-    public static string PostalCode => Configuration[nameof(PostalCode)];
+    public static string FileName => Configuration[nameof(FileName)];
+    public static string InputText => Configuration[nameof(InputText)];
+    public static string InputNewText => Configuration[nameof(InputNewText)];
+    public static string CommitNewFile => Configuration[nameof(CommitNewFile)];
+    public static string ConfirmToDelete => Configuration[nameof(ConfirmToDelete)];
     public static int WaitTimeout => int.Parse(Configuration[nameof(WaitTimeout)]);
 
     static Configurator()
