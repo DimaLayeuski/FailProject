@@ -33,7 +33,7 @@ public abstract class BasePage
         var Count = 0;
         var isPageOpenedIndicator = IsPageOpened();
 
-        while (!isPageOpenedIndicator && Count < WAIT_FOR_PAGE_LOADING_TIME/Configurator.WaitTimeout)
+        while (!isPageOpenedIndicator && Count < WAIT_FOR_PAGE_LOADING_TIME / Configurator.WaitTimeout)
         {
             Count++;
             isPageOpenedIndicator = IsPageOpened();
