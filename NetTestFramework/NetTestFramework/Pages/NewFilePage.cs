@@ -18,6 +18,10 @@ public class NewFilePage : BasePage
     public NewFilePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
     }
+    
+    public NewFilePage(IWebDriver driver) : base(driver)
+    {
+    }
 
     protected override void OpenPage()
     {

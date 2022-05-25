@@ -18,6 +18,10 @@ public class LoginPage : BasePage
     public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
     }
+    
+    public LoginPage(IWebDriver driver) : base(driver)
+    {
+    }
 
     protected override void OpenPage()
     {

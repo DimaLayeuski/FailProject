@@ -27,6 +27,12 @@ public abstract class BasePage
 
         WaitForOpen();
     }
+    
+    protected BasePage(IWebDriver driver)
+    {
+        Driver = driver;
+        _waitService = new WaitService(Driver);
+    }
 
     private void WaitForOpen()
     {

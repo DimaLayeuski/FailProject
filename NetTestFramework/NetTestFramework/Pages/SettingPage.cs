@@ -24,6 +24,10 @@ public class SettingPage : BasePage
     {
     }
 
+    public SettingPage(IWebDriver driver) : base(driver)
+    {
+    }
+    
     protected override void OpenPage()
     {
         Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);

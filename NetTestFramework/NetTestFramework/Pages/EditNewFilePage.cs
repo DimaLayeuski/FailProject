@@ -20,6 +20,10 @@ public class EditNewFilePage : BasePage
     public EditNewFilePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
     }
+    
+    public EditNewFilePage(IWebDriver driver) : base(driver)
+    {
+    }
 
     protected override void OpenPage()
     {

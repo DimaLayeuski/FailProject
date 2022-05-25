@@ -20,6 +20,10 @@ public class AddFilePage : BasePage
     public AddFilePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
     }
+    
+    public AddFilePage(IWebDriver driver) : base(driver)
+    {
+    }
 
     protected override void OpenPage()
     {

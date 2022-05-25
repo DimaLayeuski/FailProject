@@ -14,6 +14,10 @@ public class HomePage : BasePage
     public HomePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
     }
+    
+    public HomePage(IWebDriver driver) : base(driver)
+    {
+    }
 
     protected override void OpenPage()
     {
