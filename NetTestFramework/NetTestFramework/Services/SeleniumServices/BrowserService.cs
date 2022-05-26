@@ -15,7 +15,7 @@ public class BrowserService
 
     public BrowserService()
     {
-        Driver = Configurator.BrowserType.ToLower()
+        Driver = Configurator.AppSettings.BrowserType?.ToLower()
             switch
             {
                 "chrome" => new DriverFactory().GetChromeDriver(),

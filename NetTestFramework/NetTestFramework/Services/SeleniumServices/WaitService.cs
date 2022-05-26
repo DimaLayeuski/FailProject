@@ -13,11 +13,11 @@ public class WaitService
     public WaitService(IWebDriver driver)
     {
         _driver = driver;
-        _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(Configurator.WaitTimeout));
+        _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(Configurator.AppSettings.WaitTimeout));
         
         _fluentWait = new DefaultWait<IWebDriver>(_driver)
         {
-            Timeout = TimeSpan.FromSeconds(Configurator.WaitTimeout),
+            Timeout = TimeSpan.FromSeconds(Configurator.AppSettings.WaitTimeout),
             PollingInterval = TimeSpan.FromMilliseconds(250)
         };
         _fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));

@@ -11,28 +11,17 @@ public class HomePage : BasePage
 
     public IWebElement SignIn => WaitService.WaitElementIsExist(SignInBy);
 
-    public HomePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-    {
-    }
-    
     public HomePage(IWebDriver driver) : base(driver)
     {
     }
 
-    protected override void OpenPage()
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
+        return SignInBy;
     }
-
-    protected override bool IsPageOpened()
+    
+    public void OpenPage()
     {
-        try
-        {
-            return SignIn.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        Driver.Navigate().GoToUrl(Configurator.AppSettings.BaseUrl + URI);
     }
 }

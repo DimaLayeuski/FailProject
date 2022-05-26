@@ -15,28 +15,12 @@ public class LoginPage : BasePage
     public IWebElement PasswordInput => WaitService.WaitElementIsExist(PasswordInputBy);
     public IWebElement LoginButton => WaitService.WaitElementIsExist(LoginButtonBy);
 
-    public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-    {
-    }
-    
     public LoginPage(IWebDriver driver) : base(driver)
     {
     }
 
-    protected override void OpenPage()
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return LoginButton.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return LoginButtonBy;
     }
 }
