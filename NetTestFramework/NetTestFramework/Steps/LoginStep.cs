@@ -1,4 +1,3 @@
-using System.Threading;
 using NetTestFramework.Pages;
 using OpenQA.Selenium;
 
@@ -9,7 +8,6 @@ public class LoginStep
     private IWebDriver _driver;
     protected HomePage _homePage;
     protected LoginPage _loginPage;
-    
     
     public LoginStep(IWebDriver driver)
     {
