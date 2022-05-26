@@ -20,24 +20,12 @@ public class SettingPage : BasePage
     public IWebElement InputBlock => WaitService.WaitElementIsExist(InputBlockBy);
     public IWebElement ConfirmToDeleteButton => WaitService.WaitElementIsExist(ConfirmToDeleteButtonBy);
 
-    public SettingPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public SettingPage(IWebDriver driver) : base(driver)
     {
     }
-
-    protected override void OpenPage()
+    
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return RenameButton.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return RepositoryNameBy;
     }
 }

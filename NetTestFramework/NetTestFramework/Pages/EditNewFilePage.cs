@@ -17,24 +17,12 @@ public class EditNewFilePage : BasePage
     public IWebElement CommitNewFile => WaitService.WaitElementIsExist(CommitNewFileBy);
     public IWebElement CommitNewFileButton => WaitService.WaitElementIsExist(CommitNewFileButtonBy);
 
-    public EditNewFilePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public EditNewFilePage(IWebDriver driver) : base(driver)
     {
     }
 
-    protected override void OpenPage()
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return FileName.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return FileNameBy;
     }
 }

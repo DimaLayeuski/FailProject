@@ -15,24 +15,12 @@ public class RepositoryPage : BasePage
     public IWebElement Setting => WaitService.WaitElementIsExist(SettingBy);
     public IWebElement NewFileLink => WaitService.WaitElementIsExist(NewFileLinkBy);
 
-    public RepositoryPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public RepositoryPage(IWebDriver driver) : base(driver)
     {
     }
-
-    protected override void OpenPage()
+    
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return Setting.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return SettingBy;
     }
 }

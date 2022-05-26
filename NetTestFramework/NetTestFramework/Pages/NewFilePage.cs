@@ -15,24 +15,12 @@ public class NewFilePage : BasePage
     public IWebElement ChangeFileLink => WaitService.WaitElementIsExist(ChangeFileLinkBy);
     public IWebElement DeleteFileLink => WaitService.WaitElementIsExist(DeleteFileLinkBy);
 
-    public NewFilePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public NewFilePage(IWebDriver driver) : base(driver)
     {
     }
 
-    protected override void OpenPage()
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return ChangeFileLink.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return ChangeFileLinkBy;
     }
 }

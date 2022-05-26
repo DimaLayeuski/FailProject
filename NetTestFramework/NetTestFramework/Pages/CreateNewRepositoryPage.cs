@@ -15,24 +15,12 @@ public class CreateNewRepositoryPage : BasePage
     public IWebElement RepositoryName => WaitService.WaitElementIsExist(RepositoryNameBy);
     public IWebElement CreateRepository => WaitService.WaitElementIsExist(CreateRepositoryBy);
 
-    public CreateNewRepositoryPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public CreateNewRepositoryPage(IWebDriver driver) : base(driver)
     {
     }
-
-    protected override void OpenPage()
+    
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return RepositoryName.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return CreateRepositoryBy;
     }
 }

@@ -13,24 +13,12 @@ public class MainPage : BasePage
     public IWebElement CreateRepositoryButton => WaitService.WaitElementIsExist(CreateRepositoryButtonBy);
     public IWebElement ChooseRepositoryButton => WaitService.WaitElementIsExist(ChooseRepositoryButtonBy);
 
-    public MainPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+    public MainPage(IWebDriver driver) : base(driver)
     {
     }
-
-    protected override void OpenPage()
+    
+    protected override By GetPageIdentifier()
     {
-        Driver.Navigate().GoToUrl(Configurator.BaseUrl + URI);
-    }
-
-    protected override bool IsPageOpened()
-    {
-        try
-        {
-            return CreateRepositoryButton.Displayed;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return CreateRepositoryButtonBy;
     }
 }
