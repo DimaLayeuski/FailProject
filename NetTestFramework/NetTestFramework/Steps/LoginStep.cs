@@ -1,3 +1,4 @@
+using System.Threading;
 using NetTestFramework.Pages;
 using OpenQA.Selenium;
 
@@ -8,6 +9,7 @@ public class LoginStep
     private IWebDriver _driver;
     protected HomePage _homePage;
     protected LoginPage _loginPage;
+    
     
     public LoginStep(IWebDriver driver)
     {
@@ -24,5 +26,15 @@ public class LoginStep
         _loginPage.PasswordInput.SendKeys(password);
         _loginPage.LoginButton.Click();
         return new MainPage(_driver);
+    }
+    
+    public FaildLoginPage LoginWithIncorrectUsernameAndPassword(string username, string password)
+    {
+        _homePage.OpenPage();
+        _homePage.SignIn.Click();
+        _loginPage.UsernameInput.SendKeys(username);
+        _loginPage.PasswordInput.SendKeys(password);
+        _loginPage.LoginButton.Click();
+        return new FaildLoginPage(_driver);
     }
 }
