@@ -1,6 +1,5 @@
 using System;
 using NetTestFramework.Services;
-using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace NetTestFramework.Pages;
