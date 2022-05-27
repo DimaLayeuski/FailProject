@@ -77,7 +77,7 @@ public class RepositoryTests : BaseTest
     [Category("Positive")]
     [AllureSuite("Repository-UI")]
     [AllureStep("Delete repository")]
-    public void DeleteRepository_RepositoryIsDeleted()
+    public void DeleteRepository_RepositoryIsDeleted() 
     {
         LoginStep _loginStep = new LoginStep(_driver);
         _loginStep.LoginWithUsernameAndPassword(Configurator.Admin.Username, Configurator.Admin.Password);
